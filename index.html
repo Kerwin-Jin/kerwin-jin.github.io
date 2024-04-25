@@ -4,108 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    p{
-      padding:4px;
-    }
-    #note{
-      width: 400px;
-      outline: none;
-      box-shadow: 0 0 15px #555;
-      border: none;
-      position: fixed;
-      left: 100px;
-      top: 100px;
-    }
-    #note .move-bar{
-      height: 20px;
-      background-color: #f3ee76;
-      cursor: move;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 8px;
-      font-size: 12px;
-    }
-
-    #note .move-bar .close{
-      user-select: none;
-      cursor: pointer;
-    }
-
-    #note .content-wrap{
-      height: 200px;
-      background-color: #faf5ac;
-      outline: none;
-    }
-  </style>
 </head>
 <body>
-  <div id="note">
-   <div class="move-bar">
-    <span class="close">
-      x
-    </span>
-   </div>
-   <div class="content-wrap" contenteditable>
-    <p>这是一个便签</p>
-   </div>
-  </div>
+  <h1>Hello World</h1>
+  <button>click</button>
   <script>
-    const moveBar = document.querySelector('.move-bar')
-    const noteWrap = document.querySelector('#note')
-    const closeIcon = document.querySelector('.close')
-    const rect = noteWrap.getBoundingClientRect()
-
-    const maxWidth = window.innerWidth - rect.width
-    const maxHeight = window.innerHeight - rect.height
-
-    let offsetTop = 0
-    let offsetLeft = 0
-
-    function handleMouseDown(e){
-
-      const rect = moveBar.getBoundingClientRect()
-      offsetTop = e.clientY-rect.top
-      offsetLeft = e.clientX-rect.left
-      document.addEventListener('mousemove',handleMouseMove)
-    }
-
-    function handleMouseMove(e){
-
-      let boxLeft = e.clientX - offsetLeft
-      let boxTop = e.clientY - offsetTop
-
-      if(boxLeft < 0){
-        boxLeft = 0
-      }
-      if(boxLeft > maxWidth){
-        boxLeft = maxWidth
-      }
-      if(boxTop < 0){
-        boxTop = 0
-      }
-      if(boxTop > maxHeight){
-        boxTop = maxHeight
-      }
-      noteWrap.style.top =  boxTop + 'px';
-      noteWrap.style.left = boxLeft + 'px';
-
-    }
-
-    function handleMouseUp(){
-      document.removeEventListener('mousemove', handleMouseMove)
-    }
-    moveBar.addEventListener('mousedown',handleMouseDown)
-   
-    document.addEventListener('mouseup',handleMouseUp)
-    closeIcon.addEventListener('click',function(){
-      noteWrap.remove()
+    const btn = document.querySelector('button')
+    btn.addEventListener('click',()=>{
+      alert('hello zek')
     })
   </script>
 </body>
