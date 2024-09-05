@@ -2,16 +2,15 @@ const sideMenu = document.querySelector('#side-menu')
 const nav = document.querySelector('nav')
 const navLinks = document.querySelector('nav ul')
 
-function openSideMenu(){
+function openSideMenu() {
   sideMenu.style.transform = 'translateX(-16rem)'
 }
 
-function closeSideMenu(){
+function closeSideMenu() {
   sideMenu.style.transform = 'translateX(16rem)'
 }
 
-
-function toggleTheme(){
+function toggleTheme() {
   document.documentElement.classList.toggle('dark')
   // if(document.documentElement.classList.contains('dark')){
   //   localStorage.theme = 'dark'
@@ -20,18 +19,12 @@ function toggleTheme(){
   // }
 }
 
-
-window.addEventListener('scroll',()=>{
-  if(scrollY>50){
+window.addEventListener('scroll', () => {
+  if (scrollY > 50) {
     nav.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm')
     navLinks.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50')
-  }else{
+  } else {
     nav.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm')
     navLinks.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50')
   }
 })
-
-
-
-
-
